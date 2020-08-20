@@ -107,7 +107,7 @@ const App = () => {
   return (
     <Container style={{ padding: 10 }}>
       {/* DatePickerで日時指定させる場合 */}
-      {/* <Item>
+      <Item>
         <DatePicker
           defaultDate={new Date()}
           locale={"ja"}
@@ -122,7 +122,7 @@ const App = () => {
           disabled={false}
           value={formState.name}
         />
-      </Item> */}
+      </Item>
 
       {/* 日時指定を文字入力させる場合 */}
       <Item>

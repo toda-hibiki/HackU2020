@@ -1,8 +1,11 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity, Image, ImageBackground } from "react-native";
 import { Container, Header, Icon, Fab, Button } from "native-base";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import Modal from "react-native-modal";
+
+var x = '2';//LV用
+
 
 export default class Home extends Component {
   constructor(props) {
@@ -36,13 +39,28 @@ export default class Home extends Component {
                 />
               </View>
             </Col>
-            <Col size={40}></Col>
+            <Col size={20}></Col>
+{/* 追加 (hibi)    heder右上     */}
+            <Col size={20}>
+              <View
+                style={{
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backcolor: "white",
+                }}
+              >
+              <Text style={styles.abovefont}>Lv.{x}</Text>
+              </View>
+            </Col>
+{/* 追加 (hibi)          */}
           </Grid>
         </Header>
 
         <Grid>
           <Row size={80}>
             <View style={styles.abovecontainer}>
+              <ImageBackground source={{uri: 'https://hacku2020test.s3-ap-northeast-1.amazonaws.com/test-hibi/bg-sample.jpeg'}}
+                style={{ width: '100%', height: '100%' }}>
               <Fab
                 active={this.state.active}
                 direction="right"
@@ -93,19 +111,25 @@ export default class Home extends Component {
                 </Button>
               </Fab>
 
-              <Icon
+              {/* <Icon
                 type="FontAwesome"
                 name="twitter"
                 style={{ fontSize: 300, color: "black" }}
-              />
+              /> */}
 
+              <Image
+                //source={{ uri: 'https://hacku2020s3bucket144145-dev.s3-ap-northeast-1.amazonaws.com/hibi-test/mio'+x+'.jpeg' }}
+                source={{ uri: 'https://hacku2020test.s3-ap-northeast-1.amazonaws.com/test-hibi/smple.gif'}}
+                  style={{width: 170, height: 158,}}
+　　　　　　　　　/> 
               <TouchableOpacity
                 onPress={() => {
                   this.props.navigation.navigate("AppCalendar");
                 }}
               >
-                <Text style={styles.button}>Button</Text>
+                <Text style={styles.button}>Let's Add Todo</Text>
               </TouchableOpacity>
+              </ImageBackground>
             </View>
           </Row>
           <Row size={20}>
@@ -173,5 +197,10 @@ const styles = StyleSheet.create({
     marginTop: 5,
     position: "absolute",
     top: 10,
+  },
+  image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
   },
 });
